@@ -8,7 +8,12 @@ node ('New-Appserver')
 
 	stage('SCA-SAS-SNYK-TEST')
 	{
-		
+		snykSecurity(
+          snykInstallation: 'Snyk@latest',
+          snykTokenId: 'Snykid',
+          severity: 'critical'
+        )
+
 	}
 
 	
