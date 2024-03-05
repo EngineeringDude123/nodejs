@@ -6,6 +6,11 @@ node ('New-Appserver')
 		checkout scm
 	}
 
+	stage('SCA-SAS-SNYK-TEST')
+	{
+		
+	}
+
 	
 	stage ('Build-and-tag')
 	{
