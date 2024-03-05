@@ -11,7 +11,7 @@ node ('New-Appserver')
 		snykSecurity(
           snykInstallation: 'Snyk@latest',
           snykTokenId: 'Snykid',
-          severity: 'critical'
+          severity: 'high'
         )
 
 	}
