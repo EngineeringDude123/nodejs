@@ -1,7 +1,7 @@
 node ('New-Appserver') 
 {
 	def app	
-	stage('Cloning git')
+	stage('CLONE GIT REPOSITORY')
 	{
 		checkout scm
 	}
@@ -12,13 +12,13 @@ node ('New-Appserver')
 	}
 
 	
-	stage ('Build-and-tag')
+	stage ('BUILD-AND-TAG')
 	{
 		app = docker.build("johncollegeacc769/nodejs_2024")
 	}
 
 
-	stage ('Post-to-Dockerhub')
+	stage ('POST-TO-DOCKERHUB')
 	{
 		docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials')
 		{
@@ -27,7 +27,7 @@ node ('New-Appserver')
 	}
 
 
-	stage ('pull-image-server')
+	stage ('DEPLOYMENT')
 	{
 		sh "docker-compose down"
 		sh "docker-compose up -d"
